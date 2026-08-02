@@ -1,4 +1,4 @@
-July 29, 2026: Recognized by CAICT as a Token Cloud Service Innovation Practice Case, and invited to give a presentation.
+July 29, 2026: Recognized as a 2026 Token Cloud Service Innovation Practice Case, and invited to give a presentation.
 June 25, 2026: Total token usage exceeds [30 billion](https://portal.aihub.arcsysu.cn/), already supported new models like GLM-5.2.
 June 14, 2026: Full support for Hermes, delivering personalized Skills and enabling a new generation of intelligent agent systems.
 May 31, 2026: YatCC is presented at the CSIG Future HCI Forum, with a talk titled “YatCC: An Integrated Application Support Platform for Human–AI Collaborative Intelligent Practice”.
