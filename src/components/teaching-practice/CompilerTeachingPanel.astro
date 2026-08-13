@@ -6,16 +6,18 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const t = <T,>(value: { zh: T; en: T }) => value[lang];
+const t = <T,>(value: { zh: T; en: T; ja: T; ko: T }) => value[lang];
 const courseYears = ["2026", "2025", "2024", "2023", "2022", "2021"] as const;
 
 const resources = [
   {
     id: "docs",
-    title: t({ zh: "文档", en: "Docs" }),
+    title: t({ zh: "文档", en: "Docs", ja: "ドキュメント", ko: "문서" }),
     description: t({
       zh: "编译实践平台使用说明、实验指引与 API 参考。",
       en: "Platform guides, lab instructions, and API references.",
+      ja: "コンパイラ実習プラットフォームの利用案内、実験ガイド、API リファレンス。",
+      ko: "컴파일러 실습 플랫폼 사용 설명, 실험 가이드, API 참고 자료.",
     }),
     href: "https://docs.yatcc-ai.com/#/",
     label: "docs.yatcc-ai.com",
@@ -23,10 +25,12 @@ const resources = [
   },
   {
     id: "videos",
-    title: t({ zh: "视频", en: "Videos" }),
+    title: t({ zh: "视频", en: "Videos", ja: "動画", ko: "영상" }),
     description: t({
       zh: "课程讲解、实验演示与平台功能介绍视频合集。",
       en: "Lecture recordings, lab demos, and platform walkthroughs.",
+      ja: "講義解説、実験デモ、プラットフォーム紹介動画のコレクション。",
+      ko: "강의 해설, 실험 데모, 플랫폼 기능 소개 영상 모음.",
     }),
     href: "https://space.bilibili.com/3546650047941291",
     label: "Bilibili",
@@ -34,10 +38,12 @@ const resources = [
   },
   {
     id: "source",
-    title: t({ zh: "源码", en: "Source" }),
+    title: t({ zh: "源码", en: "Source", ja: "ソースコード", ko: "소스 코드" }),
     description: t({
       zh: "YatCC 编译器教学框架与实验基础设施开源仓库。",
       en: "Open-source compiler teaching framework and lab infrastructure.",
+      ja: "YatCC コンパイラ教育フレームワークと実験インフラのオープンソースリポジトリ。",
+      ko: "YatCC 컴파일러 교육 프레임워크와 실험 인프라 오픈소스 저장소.",
     }),
     href: "https://github.com/arcsysu/YatCC",
     label: "github.com/arcsysu/YatCC",
@@ -48,7 +54,7 @@ const resources = [
 
 <div class="practice-panel practice-panel--compiler">
   <p class="resource-section-label">
-    {t({ zh: "资源入口", en: "Resource Hub" })}
+    {t({ zh: "资源入口", en: "Resource Hub", ja: "リソース一覧", ko: "리소스 허브" })}
   </p>
   <div class="resource-grid">
     {
@@ -104,12 +110,14 @@ const resources = [
             <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
           </svg>
         </span>
-        <h2>{t({ zh: "课程网站", en: "Course Sites" })}</h2>
+        <h2>{t({ zh: "课程网站", en: "Course Sites", ja: "コースサイト", ko: "강의 사이트" })}</h2>
       </div>
       <p>
         {t({
           zh: "历年编译原理与实验课程主页，含讲义、实验安排与参考资料。",
           en: "Archive of compiler course homepages with slides, labs, and schedules.",
+          ja: "歴年のコンパイラ原理・実験コースのホームページ。講義資料、実験日程、参考資料を掲載。",
+          ko: "역대 컴파일러 원리 및 실험 강의 홈페이지. 강의 자료, 실험 일정, 참고 자료를 포함합니다.",
         })}
       </p>
       <ul class="course-year-list">

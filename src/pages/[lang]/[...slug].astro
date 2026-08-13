@@ -6,14 +6,18 @@ export function getStaticPaths() {
   return [
     { params: { lang: "zh", slug: undefined } },
     { params: { lang: "en", slug: undefined } },
+    { params: { lang: "ja", slug: undefined } },
+    { params: { lang: "ko", slug: undefined } },
     { params: { lang: "zh", slug: "teaching-practice" } },
     { params: { lang: "en", slug: "teaching-practice" } },
+    { params: { lang: "ja", slug: "teaching-practice" } },
+    { params: { lang: "ko", slug: "teaching-practice" } },
   ];
 }
 
 const { lang, slug } = Astro.params;
 
-if (lang !== "zh" && lang !== "en") {
+if (lang !== "zh" && lang !== "en" && lang !== "ja" && lang !== "ko") {
   return Astro.redirect("/zh/");
 }
 

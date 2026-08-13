@@ -32,6 +32,9 @@ const monthPattern = MONTH_NAMES.join("|");
 const zhLinePattern =
   /^(\d{4})年(\d{1,2})月(\d{1,2})日[：:]\s*(.+)$/;
 
+const koLinePattern =
+  /^(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일[：:]\s*(.+)$/;
+
 const enLinePattern = new RegExp(
   `^(${monthPattern})\\s+(\\d{1,2}),\\s+(\\d{4})[:：]\\s*(.+)$`,
 );
@@ -68,8 +71,27 @@ function parseEnLine(line: string): NewsEntry | null {
   };
 }
 
+function parseKoLine(line: string): NewsEntry | null {
+  const match = line.trim().match(koLinePattern);
+  if (!match) return null;
+
+  const [, year, month, day, body] = match;
+  const rawDate = `${year}년 ${month}월 ${day}일`;
+
+  return {
+    date: new Date(Number(year), Number(month) - 1, Number(day)),
+    body: body.trim(),
+    rawDate,
+  };
+}
+
 function parseNewsContent(content: string, lang: SiteLang): NewsEntry[] {
-  const parseLine = lang === "zh" ? parseZhLine : parseEnLine;
+  const parseLine =
+    lang === "zh" || lang === "ja"
+      ? parseZhLine
+      : lang === "ko"
+        ? parseKoLine
+        : parseEnLine;
 
   return content
     .split(/\r?\n/)
@@ -100,8 +122,15 @@ export function getLatestNews(entries: NewsEntry[], limit = 5): NewsEntry[] {
   return entries.slice(0, limit);
 }
 
+const dateLocales: Record<SiteLang, string> = {
+  zh: "zh-CN",
+  en: "en-US",
+  ja: "ja-JP",
+  ko: "ko-KR",
+};
+
 export function formatNewsDate(date: Date, lang: SiteLang) {
-  return new Intl.DateTimeFormat(lang === "zh" ? "zh-CN" : "en-US", {
+  return new Intl.DateTimeFormat(dateLocales[lang], {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -117,7 +146,7 @@ export function formatNewsDisplayDate(date: Date) {
 }
 
 const markdownLinkPattern = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
-const commaPattern = /[,，]/;
+const commaPattern = /[,，、]/;
 
 export function getNewsExcerpt(body: string): string {
   const match = body.match(commaPattern);

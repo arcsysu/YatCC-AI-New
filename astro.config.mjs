@@ -21,7 +21,7 @@ export default defineConfig({
         "astro:build:done": ({ dir }) => {
           const outDir = fileURLToPath(dir);
           const srcFile = join(outDir, "js", "altcha.js");
-          const langDirs = ["en", "zh"];
+          const langDirs = ["en", "zh", "ja", "ko"];
           
           for (const lang of langDirs) {
             const targetDir = join(outDir, lang, "js");

@@ -12,7 +12,7 @@ export function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
-/** Strip leading /zh or /en from a pathname. */
+/** Strip leading /zh, /en, /ja or /ko from a pathname. */
 export function stripLangPrefix(pathname: string): string {
   const segments = pathname.split("/").filter(Boolean);
   if (segments.length > 0 && segments[0] in ui) {
@@ -23,8 +23,8 @@ export function stripLangPrefix(pathname: string): string {
 }
 
 /**
- * Path for the language switcher — always uses /zh/... or /en/... so switching
- * to the default language does not hit / (browser-language redirect).
+ * Path for the language switcher — always uses /zh/... /en/... /ja/... or /ko/...
+ * so switching to the default language does not hit / (browser-language redirect).
  */
 export function getSwitcherPath(url: URL, targetLang: keyof typeof ui): string {
   const pathWithoutLang = stripLangPrefix(url.pathname);

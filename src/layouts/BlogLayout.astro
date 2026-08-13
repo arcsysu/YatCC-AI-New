@@ -13,14 +13,20 @@ interface Props {
 }
 
 const { title, summary, date, lang, category = "News" } = Astro.props;
-const backHref = lang === "zh" ? "/zh/#news" : "/en/#news";
+const backHref = `/${lang}/#news`;
+const backLabel = {
+  zh: "返回首页时间线",
+  en: "Back to timeline",
+  ja: "ホームのタイムラインに戻る",
+  ko: "홈 타임라인으로 돌아가기",
+} as const;
 ---
 
 <BaseLayout>
   <article class="blog-shell">
     <div class="blog-header">
       <Link href={backHref}>
-        {lang === "zh" ? "返回首页时间线" : "Back to timeline"}
+        {backLabel[lang]}
       </Link>
       <div class="blog-meta">
         <span>{category}</span>

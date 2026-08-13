@@ -13,7 +13,7 @@ import { getLangFromUrl } from "@/i18n/utils";
 import { getLatestNews, getNewsEntries } from "@/lib/news";
 
 const lang = getLangFromUrl(Astro.url);
-const t = <T,>(value: { zh: T; en: T }) => value[lang];
+const t = <T,>(value: { zh: T; en: T; ja: T; ko: T }) => value[lang];
 const latestNews = getLatestNews(await getNewsEntries(lang), 5);
 ---
 
@@ -24,20 +24,28 @@ const latestNews = getLatestNews(await getNewsEntries(lang), 5);
     subtitle={t({
       zh: "贯通“应用—系统—算力”的全栈式、一体化智能服务平台",
       en: "One-stop intelligent platform from apps to compute.",
+      ja: "「アプリ—システム—計算資源」をつなぐフルスタック一体型インテリジェントサービスプラットフォーム",
+      ko: "‘애플리케이션—시스템—연산 자원’을 관통하는 풀스택 일체형 지능형 서비스 플랫폼",
     })}
     rampLabel={t({
       zh: "⚡ RAMP 模型榜单",
       en: "⚡ RAMP Leaderboard",
+      ja: "⚡ RAMP モデルランキング",
+      ko: "⚡ RAMP 모델 리더보드",
     })}
     rampHref="https://ramp.nexa-lang.com/"
     primaryLabel={t({
       zh: "🔨 进入平台",
       en: "🔨 Get Started",
+      ja: "🔨 プラットフォームへ",
+      ko: "🔨 플랫폼 시작",
     })}
     primaryHref="https://ol.yatcc.arcsysu.cn"
     tertiaryLabel={t({
       zh: "🎓 2026编译实践",
       en: "🎓 2026 Compiler",
+      ja: "🎓 2026 コンパイラ実習",
+      ko: "🎓 2026 컴파일러 실습",
     })}
     tertiaryHref="https://yatcc-ai.com/teach/s2026.html"
   />
@@ -47,28 +55,36 @@ const latestNews = getLatestNews(await getNewsEntries(lang), 5);
   <HomeTimelineSection slot="news" lang={lang} news={latestNews} />
 
   <CardContainer slot="cards">
-    <Card icon="📦" title={t({ zh: "设计模块化", en: "Highly Modular" })}>
+    <Card icon="📦" title={t({ zh: "设计模块化", en: "Highly Modular", ja: "設計のモジュール化", ko: "설계 모듈화" })}>
       {t({
         zh: "以前沿技术体系为驱动，构建高内聚、低耦合的模块化架构，支持组件级扩展与能力复用，为复杂系统构建提坚实健技术底座",
         en: "Decouple compiler frontend and backend logic with a clean architecture that stays extensible for both teaching and research.",
+        ja: "最先端の技術体系を駆動力に、高凝集・低結合のモジュールアーキテクチャを構築し、コンポーネント単位の拡張と能力の再利用を支え、複雑なシステム構築のための堅牢な技術基盤を提供します",
+        ko: "최신 기술 체계를 기반으로 고응집·저결합 모듈형 아키텍처를 구축하여 컴포넌트 단위 확장과 역량 재사용을 지원하고, 복잡한 시스템 구축을 위한 견고한 기술 기반을 제공합니다",
       })}
     </Card>
-    <Card icon="🌐" title={t({ zh: "体验现代化", en: "Automated Evaluation" })}>
+    <Card icon="🌐" title={t({ zh: "体验现代化", en: "Automated Evaluation", ja: "体験の現代化", ko: "경험 현대화" })}>
       {t({
         zh: "提供容器化支持，打造『零配置』Web 化实践平台，用户无需本地部署与复杂环境搭建，打开浏览器即开即用，让计算触手可及",
         en: "Built-in unit tests and dual-mode automated evaluation streamline workflows across both local and cloud environments.",
+        ja: "コンテナ化により「ゼロ設定」の Web 実習プラットフォームを実現。ローカル環境の構築は不要で、ブラウザを開けばすぐに利用でき、計算を身近にします",
+        ko: "컨테이너화를 통해 ‘제로 설정’ 웹 실습 플랫폼을 제공합니다. 로컬 배포와 복잡한 환경 구성 없이 브라우저만 열면 바로 사용할 수 있어 컴퓨팅을 손쉽게 이용할 수 있습니다",
       })}
     </Card>
-    <Card icon="🤖" title={t({ zh: "过程智能化", en: "Deep LLM Integration" })}>
+    <Card icon="🤖" title={t({ zh: "过程智能化", en: "Deep LLM Integration", ja: "プロセスの知能化", ko: "과정 지능화" })}>
       {t({
         zh: "深度融合 DeepSeek、OpenClaw 等先进模型及框架，提供统一 AI Hub 能力入口，一键进入 Vibe Coding 和 Agent 应用",
         en: "Integrate models such as DeepSeek into a zero-setup web platform so learners can start exploring compilers directly in the browser.",
+        ja: "DeepSeek、OpenClaw などの先進モデルとフレームワークを深く統合し、統一された AI Hub 入口を提供。ワンクリックで Vibe Coding と Agent 応用を開始できます",
+        ko: "DeepSeek, OpenClaw 등 선진 모델과 프레임워크를 깊이 통합하고, 통일된 AI Hub 진입점을 제공하여 원클릭으로 Vibe Coding과 Agent 응용을 시작할 수 있습니다",
       })}
     </Card>
-    <Card icon="🦾" title={t({ zh: "资源聚合化", en: "End-to-End Intelligence" })}>
+    <Card icon="🦾" title={t({ zh: "资源聚合化", en: "End-to-End Intelligence", ja: "リソースの集約", ko: "자원 통합화" })}>
       {t({
         zh: "围绕平台能力构建多层次资源体系，提供服务接口、技术文档、引导教程、智能助手等完整支持链路，持续优化提升用户实践体验",
         en: "Support the full compiler-building workflow with intelligent automation and enable AI-driven innovation throughout the pipeline.",
+        ja: "プラットフォーム能力を中心に多層的なリソース体系を構築し、サービス API、技術文書、チュートリアル、スマートアシスタントなど一連の支援を提供し、実践体験を継続的に向上させます",
+        ko: "플랫폼 역량을 중심으로 다층 자원 체계를 구축하고, 서비스 인터페이스, 기술 문서, 가이드 튜토리얼, 스마트 어시스턴트 등 완전한 지원 체인을 제공하여 실습 경험을 지속적으로 향상시킵니다",
       })}
     </Card>
   </CardContainer>
@@ -76,36 +92,42 @@ const latestNews = getLatestNews(await getNewsEntries(lang), 5);
   <HomeFeatureSection
     slot="ol-lab"
     id="ol-lab"
-    eyebrow={t({ zh: "Platform / OL LAB", en: "Platform / OL LAB" })}
+    eyebrow={t({ zh: "Platform / OL LAB", en: "Platform / OL LAB", ja: "Platform / OL LAB", ko: "Platform / OL LAB" })}
     title="OL LAB"
     direction="left"
     features={[
       {
-        title: t({ zh: "便捷化", en: "Accessible" }),
+        title: t({ zh: "便捷化", en: "Accessible", ja: "手軽さ", ko: "편리함" }),
         description: t({
           zh: "通过云端开发环境与预置工具链，快速进入系统开发状态，减少本地环境搭建与排障成本",
           en: "Start quickly with cloud development environments and preconfigured toolchains, without spending time on local setup.",
+          ja: "クラウド開発環境と事前設定済みツールチェーンにより、すぐにシステム開発を開始でき、ローカル環境構築とトラブルシュートのコストを削減します",
+          ko: "클라우드 개발 환경과 사전 구성된 툴체인으로 빠르게 시스템 개발에 진입하고, 로컬 환경 구축과 장애 처리 비용을 줄입니다",
         }),
         image: imgUseCodespaces,
-        alt: t({ zh: "OL LAB 便捷化演示", en: "OL LAB accessibility demo" }),
+        alt: t({ zh: "OL LAB 便捷化演示", en: "OL LAB accessibility demo", ja: "OL LAB の手軽さデモ", ko: "OL LAB 편리함 데모" }),
       },
       {
-        title: t({ zh: "自动化", en: "Automated" }),
+        title: t({ zh: "自动化", en: "Automated", ja: "自動化", ko: "자동화" }),
         description: t({
           zh: "开发、测试、部署、运行，端到端流程自动化闭环，让实践过程更稳定、更高效、更可复现",
           en: "Unify submission, evaluation, and feedback into one smooth workflow for more reliable and reproducible lab experiences.",
+          ja: "開発、テスト、デプロイ、実行までエンドツーエンドの自動化ループにより、実習をより安定・効率的・再現可能にします",
+          ko: "개발, 테스트, 배포, 실행의 엔드투엔드 자동화를 통해 실습 과정을 더 안정적이고 효율적이며 재현 가능하게 만듭니다",
         }),
         image: imgUseOl,
-        alt: t({ zh: "OL LAB 自动化演示", en: "OL LAB automation demo" }),
+        alt: t({ zh: "OL LAB 自动化演示", en: "OL LAB automation demo", ja: "OL LAB の自動化デモ", ko: "OL LAB 자동화 데모" }),
       },
       {
-        title: t({ zh: "智能化", en: "Intelligent" }),
+        title: t({ zh: "智能化", en: "Intelligent", ja: "知能化", ko: "지능화" }),
         description: t({
           zh: "将 AI 能力嵌入教学与科研场景，在系统开发构建过程中提供全程辅助，推动智能范式变革",
           en: "Embed AI assistance into compiler education and practice to provide more natural guidance during implementation and experimentation.",
+          ja: "AI 能力を教育・研究シーンに組み込み、システム開発の全過程を支援し、知能パラダイムの変革を推進します",
+          ko: "AI 역량을 교육·연구 장면에 내장하여 시스템 개발 전 과정을 지원하고, 지능형 패러다임 전환을 추진합니다",
         }),
         image: imgUseCodespaces,
-        alt: t({ zh: "OL LAB 智能化演示", en: "OL LAB intelligence demo" }),
+        alt: t({ zh: "OL LAB 智能化演示", en: "OL LAB intelligence demo", ja: "OL LAB の知能化デモ", ko: "OL LAB 지능화 데모" }),
       },
     ]}
   />
@@ -113,36 +135,42 @@ const latestNews = getLatestNews(await getNewsEntries(lang), 5);
   <HomeFeatureSection
     slot="ai-hub"
     id="ai-hub"
-    eyebrow={t({ zh: "Platform / AI Hub", en: "Platform / AI Hub" })}
+    eyebrow={t({ zh: "Platform / AI Hub", en: "Platform / AI Hub", ja: "Platform / AI Hub", ko: "Platform / AI Hub" })}
     title="AI Hub"
     direction="right"
     features={[
       {
-        title: t({ zh: "统一模型网关", en: "Unified Model Gateway" }),
+        title: t({ zh: "统一模型网关", en: "Unified Model Gateway", ja: "統一モデルゲートウェイ", ko: "통합 모델 게이트웨이" }),
         description: t({
           zh: "基于 LiteLLM 提供统一 LLM Gateway，将多模型调用抽象为一致接口，实现跨模型能力的无缝接入与灵活切换",
           en: "Provide a LiteLLM-based gateway that unifies multi-model access behind a consistent interface for switching and integration.",
+          ja: "LiteLLM に基づく統一 LLM Gateway により、複数モデルの呼び出しを一貫したインターフェースに抽象化し、シームレスな接続と柔軟な切り替えを実現します",
+          ko: "LiteLLM 기반 통합 LLM Gateway로 다중 모델 호출을 일관된 인터페이스로 추상화하여 원활한 접속과 유연한 전환을 실현합니다",
         }),
         image: imgAiHubShowcase,
-        alt: t({ zh: "AI Hub 平台展示", en: "AI Hub platform showcase" }),
+        alt: t({ zh: "AI Hub 平台展示", en: "AI Hub platform showcase", ja: "AI Hub プラットフォーム展示", ko: "AI Hub 플랫폼 소개" }),
       },
       {
-        title: t({ zh: "密钥访问控制", en: "Access Control" }),
+        title: t({ zh: "密钥访问控制", en: "Access Control", ja: "キーアクセス制御", ko: "키 접근 제어" }),
         description: t({
           zh: "面向项目与用户提供体系化的认证鉴权、虚拟密钥与细粒度访问控制机制，构建开放、共享、可控的先进性服务能力",
           en: "Support authentication, virtual keys, and project-level access control so model services remain manageable and clearly isolated.",
+          ja: "プロジェクトとユーザー向けに体系的な認証認可、仮想キー、細粒度アクセス制御を提供し、開放的で共有可能かつ制御可能な先進サービスを構築します",
+          ko: "프로젝트와 사용자를 위한 체계적인 인증·인가, 가상 키, 세분화된 접근 제어를 제공하여 개방적이고 공유 가능하며 통제 가능한 선진 서비스 역량을 구축합니다",
         }),
         image: imgAiHubShowcase,
-        alt: t({ zh: "AI Hub 平台展示", en: "AI Hub platform showcase" }),
+        alt: t({ zh: "AI Hub 平台展示", en: "AI Hub platform showcase", ja: "AI Hub プラットフォーム展示", ko: "AI Hub 플랫폼 소개" }),
       },
       {
-        title: t({ zh: "用量成本观测", en: "Usage Visibility" }),
+        title: t({ zh: "用量成本观测", en: "Usage Visibility", ja: "利用量・コスト可視化", ko: "사용량·비용 관측" }),
         description: t({
           zh: "依托统一管理控制台观测 Token 使用、调用频次与项目级开销，支持精细化管理模型使用、预算消耗与平台活跃度",
           en: "Track tokens, requests, and project-level spending through the admin console to better understand usage, activity, and cost.",
+          ja: "統一管理コンソールで Token 使用量、呼び出し頻度、プロジェクト単位のコストを観測し、モデル利用、予算消費、プラットフォームのアクティビティをきめ細かく管理できます",
+          ko: "통합 관리 콘솔에서 Token 사용량, 호출 빈도, 프로젝트 단위 비용을 관측하여 모델 사용, 예산 소모, 플랫폼 활성도를 세밀하게 관리할 수 있습니다",
         }),
         image: imgAiHubShowcase,
-        alt: t({ zh: "AI Hub 平台展示", en: "AI Hub platform showcase" }),
+        alt: t({ zh: "AI Hub 平台展示", en: "AI Hub platform showcase", ja: "AI Hub プラットフォーム展示", ko: "AI Hub 플랫폼 소개" }),
       },
     ]}
   />

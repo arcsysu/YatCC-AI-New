@@ -80,8 +80,15 @@ export async function getAllBlogEntries() {
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
+const dateLocales: Record<SiteLang, string> = {
+  zh: "zh-CN",
+  en: "en-US",
+  ja: "ja-JP",
+  ko: "ko-KR",
+};
+
 export function formatBlogDate(date: Date, lang: SiteLang) {
-  return new Intl.DateTimeFormat(lang === "zh" ? "zh-CN" : "en-US", {
+  return new Intl.DateTimeFormat(dateLocales[lang], {
     year: "numeric",
     month: "short",
     day: "numeric",

@@ -8,16 +8,16 @@ interface Props {
 
 const { lang } = Astro.props;
 
-const t = <T,>(value: { zh: T; en: T }) => value[lang];
+const t = <T,>(value: { zh: T; en: T; ja: T; ko: T }) => value[lang];
 ---
 
-<section class="teaching-hub" aria-label={t({ zh: "教学实践", en: "Teaching Practice" })}>
+<section class="teaching-hub" aria-label={t({ zh: "教学实践", en: "Teaching Practice", ja: "教育実践", ko: "교육 실천" })}>
   <header class="hub-header">
-    <span class="hub-eyebrow">{t({ zh: "Use Cases / 教学实践", en: "Use Cases / Teaching Practice" })}</span>
-    <h1 class="hub-title">{t({ zh: "教学实践", en: "Teaching Practice" })}</h1>
+    <span class="hub-eyebrow">{t({ zh: "Use Cases / 教学实践", en: "Use Cases / Teaching Practice", ja: "Use Cases / 教育実践", ko: "Use Cases / 교육 실천" })}</span>
+    <h1 class="hub-title">{t({ zh: "教学实践", en: "Teaching Practice", ja: "教育実践", ko: "교육 실천" })}</h1>
   </header>
 
-  <div class="topic-row" aria-label={t({ zh: "实践分类", en: "Practice categories" })}>
+  <div class="topic-row" aria-label={t({ zh: "实践分类", en: "Practice categories", ja: "実践カテゴリ", ko: "실천 분류" })}>
     <div class="topic-card topic-card--active" aria-current="page">
       <span class="topic-card-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -26,11 +26,13 @@ const t = <T,>(value: { zh: T; en: T }) => value[lang];
         </svg>
       </span>
       <span class="topic-card-copy">
-        <span class="topic-card-title">{t({ zh: "编译教学", en: "Compiler Teaching" })}</span>
+        <span class="topic-card-title">{t({ zh: "编译教学", en: "Compiler Teaching", ja: "コンパイラ教育", ko: "컴파일러 교육" })}</span>
         <span class="topic-card-desc">
           {t({
             zh: "文档、视频、源码与历年课程网站",
             en: "Docs, videos, source code, and course archives",
+            ja: "ドキュメント、動画、ソースコード、歴年のコースサイト",
+            ko: "문서, 영상, 소스 코드, 역대 강의 사이트",
           })}
         </span>
       </span>
@@ -42,7 +44,7 @@ const t = <T,>(value: { zh: T; en: T }) => value[lang];
           <path d="m12 3 1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6 7 18.2l1.9-5.8L4 8.8h6.1L12 3Z" />
         </svg>
       </span>
-      <span class="topic-chip-label">{t({ zh: "敬请期待…", en: "Coming Soon…" })}</span>
+      <span class="topic-chip-label">{t({ zh: "敬请期待…", en: "Coming Soon…", ja: "近日公開…", ko: "곧 공개…" })}</span>
     </div>
   </div>
 

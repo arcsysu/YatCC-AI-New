@@ -209,6 +209,8 @@ const isRoot = slug === "";
           <div class="actions">
             <a class="action action-primary" href="/zh/">进入中文站</a>
             <a class="action action-secondary" href="/en/">Continue in English</a>
+            <a class="action action-secondary" href="/ja/">日本語で続ける</a>
+            <a class="action action-secondary" href="/ko/">한국어로 계속</a>
           </div>
           <p class="footnote">
             如果没有自动跳转，你也可以手动选择语言继续访问。
@@ -217,7 +219,13 @@ const isRoot = slug === "";
       </main>
       <script is:inline>
         const preferred = (navigator.languages?.[0] || navigator.language || "zh").toLowerCase();
-        const target = preferred.startsWith("en") ? "/en/" : "/zh/";
+        const target = preferred.startsWith("ja")
+          ? "/ja/"
+          : preferred.startsWith("ko")
+            ? "/ko/"
+            : preferred.startsWith("en")
+              ? "/en/"
+              : "/zh/";
         location.replace(target);
       </script>
       <noscript>
@@ -227,6 +235,8 @@ const isRoot = slug === "";
             <div class="actions">
               <a class="action action-primary" href="/zh/">进入中文站</a>
               <a class="action action-secondary" href="/en/">Continue in English</a>
+              <a class="action action-secondary" href="/ja/">日本語で続ける</a>
+              <a class="action action-secondary" href="/ko/">한국어로 계속</a>
             </div>
           </div>
         </div>

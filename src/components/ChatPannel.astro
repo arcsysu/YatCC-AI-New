@@ -34,7 +34,7 @@ const t = tOfUrl(Astro.url);
     <div class="messages-container" data-agent-messages>
       <article class="yat-agent__message yat-agent__message--assistant">
         <div class="yat-agent__message-body">
-          你好！我是 YatCC 助手，请问有什么可以帮您？
+          {t("chat.greeting")}
         </div>
       </article>
     </div>
@@ -42,7 +42,7 @@ const t = tOfUrl(Astro.url);
     <form class="input-form" data-agent-form>
       <textarea
         name="prompt"
-        placeholder="输入问题..."
+        placeholder={t("chat.placeholder")}
         rows="1"
         autocomplete="off"></textarea>
       <button type="submit" class="send-btn">

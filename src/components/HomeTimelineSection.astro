@@ -25,6 +25,20 @@ const copy = {
     empty: "No news posts yet. Check back soon.",
     cta: "View all updates",
   },
+  ja: {
+    eyebrow: "Timeline / News",
+    title: "最近の動向",
+    description: "",
+    empty: "現在ニュースはありません。後ほどご確認ください。",
+    cta: "すべての動向を見る",
+  },
+  ko: {
+    eyebrow: "Timeline / News",
+    title: "최근 소식",
+    description: "",
+    empty: "아직 소식이 없습니다. 나중에 다시 확인해 주세요.",
+    cta: "모든 소식 보기",
+  },
 } as const;
 
 const text = copy[lang];
@@ -35,7 +49,7 @@ const text = copy[lang];
     <span>{text.eyebrow}</span>
     <div class="timeline-heading-row">
       <h2>{text.title}</h2>
-      <Button href={lang === "zh" ? "/zh/news" : "/en/news"}>{text.cta}</Button>
+      <Button href={`/${lang}/news`}>{text.cta}</Button>
     </div>
   </div>
 

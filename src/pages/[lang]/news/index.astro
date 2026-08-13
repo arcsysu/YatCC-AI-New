@@ -7,12 +7,17 @@ import {
 } from "@/lib/news";
 
 export async function getStaticPaths() {
-  return [{ params: { lang: "zh" } }, { params: { lang: "en" } }];
+  return [
+    { params: { lang: "zh" } },
+    { params: { lang: "en" } },
+    { params: { lang: "ja" } },
+    { params: { lang: "ko" } },
+  ];
 }
 
 const { lang } = Astro.params;
 
-if (lang !== "zh" && lang !== "en") {
+if (lang !== "zh" && lang !== "en" && lang !== "ja" && lang !== "ko") {
   return Astro.redirect("/zh/news");
 }
 
@@ -28,6 +33,16 @@ const copy = {
     title: "News & Updates",
     description: "Announcements, milestones, and platform updates from YatCC.",
     empty: "No updates are available yet.",
+  },
+  ja: {
+    title: "プラットフォーム動向",
+    description: "YatCC の重要な発表、マイルストーン、エコシステムの進展一覧。",
+    empty: "現在お知らせはありません。後ほどご確認ください。",
+  },
+  ko: {
+    title: "플랫폼 소식",
+    description: "YatCC 플랫폼의 주요 발표, 마일스톤, 생태계 진전을 한눈에 봅니다.",
+    empty: "아직 소식이 없습니다. 나중에 다시 확인해 주세요.",
   },
 } as const;
 

@@ -26,12 +26,31 @@ const stats: Record<SiteLang, StatItem[]> = {
     { value: "900+", title: "Container image instances", icon: "containers" },
     { value: "10+", title: "Teaching & research awards", icon: "awards" },
   ],
+  ja: [
+    { value: "700+", title: "登録ユーザー", icon: "users" },
+    { value: "300億+", title: "Token 呼び出し量", icon: "tokens" },
+    { value: "900+", title: "コンテナイメージインスタンス", icon: "containers" },
+    { value: "10+", title: "教育・研究賞", icon: "awards" },
+  ],
+  ko: [
+    { value: "700+", title: "등록 사용자", icon: "users" },
+    { value: "300억+", title: "Token 호출량", icon: "tokens" },
+    { value: "900+", title: "컨테이너 이미지 인스턴스", icon: "containers" },
+    { value: "10+", title: "교육·연구 수상", icon: "awards" },
+  ],
 };
 
 const items = stats[lang];
+
+const statsLabel = {
+  zh: "平台数据",
+  en: "Platform metrics",
+  ja: "プラットフォーム指標",
+  ko: "플랫폼 지표",
+} as const;
 ---
 
-<section class="home-stats-section" aria-label={lang === "zh" ? "平台数据" : "Platform metrics"}>
+<section class="home-stats-section" aria-label={statsLabel[lang]}>
   <ul class="stats-grid">
     {
       items.map((item) => (

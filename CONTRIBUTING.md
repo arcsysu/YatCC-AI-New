@@ -154,7 +154,7 @@
    import { getLangFromUrl } from "@/i18n/utils";
 
    const lang = getLangFromUrl(Astro.url);
-   const t = <T,>(value: { zh: T; en: T }) => value[lang];
+   const t = <T,>(value: { zh: T; en: T; ja: T; ko: T }) => value[lang];
    ---
 
    <Hero
@@ -162,6 +162,8 @@
      subtitle={t({
        zh: "中文介绍",
        en: "English introduction",
+       ja: "日本語の紹介",
+       ko: "한국어 소개",
      })}
    />
    ```
@@ -261,11 +263,11 @@
    3. 页面文案 i18n 采用 inline 形式，靠近实际渲染位置，例如：
 
       ```ts
-      const t = <T,>(value: { zh: T; en: T }) => value[lang];
+      const t = <T,>(value: { zh: T; en: T; ja: T; ko: T }) => value[lang];
       ```
 
       ```astro
-      <h1>{t({ zh: "中文标题", en: "English Title" })}</h1>
+      <h1>{t({ zh: "中文标题", en: "English Title", ja: "日本語タイトル", ko: "한국어 제목" })}</h1>
       ```
 
    4. 不要再新建集中式 page-content dictionary，除非真的有明确复用需求
@@ -293,7 +295,7 @@
    - `title`: 文章标题
    - `summary`: 摘要，会展示在博客列表和部分首页上下文里
    - `date`: 发布时间，决定排序
-   - `lang`: 语言，只能是 `zh` 或 `en`
+   - `lang`: 语言，只能是 `zh`、`en`、`ja` 或 `ko`
    - `category`: 可选，分类标签
    - `pinned`: 可选，`true` 时会优先排序
    - `draft`: 可选，`true` 时不会出现在页面里
@@ -302,9 +304,13 @@
    - 博客列表页：
      - `/zh/blog`
      - `/en/blog`
+     - `/ja/blog`
+     - `/ko/blog`
    - 博客详情页：
      - `/zh/blog/<slug>`
      - `/en/blog/<slug>`
+     - `/ja/blog/<slug>`
+     - `/ko/blog/<slug>`
    - 无语言前缀的 `/blog` 会重定向到默认语言 `/zh/blog`
 
 4. 首页时间线
@@ -316,7 +322,7 @@
 5. 新增文章 quick 'n dirty
    1. 在 [src/contents/blog/](src/contents/blog/) 新建一个 markdown 文件
    2. 写好 frontmatter 和正文
-   3. 如果做双语内容，分别新建 `*-zh.md` 和 `*-en.md`
+   3. 如果做多语言内容，分别新建 `*-zh.md`、`*-en.md`、`*-ja.md` 和 `*-ko.md`
    4. 运行：
 
       ```bash
@@ -330,7 +336,7 @@
       ```
 
    5. 确认：
-      - `/zh/blog` 或 `/en/blog` 能看到文章
+      - `/zh/blog`、`/en/blog`、`/ja/blog` 或 `/ko/blog` 能看到文章
       - 首页 timeline 能看到对应节点
       - 点击节点能跳到详情页
 
@@ -348,11 +354,11 @@
 
    2. 带语言前缀路由入口 [\[lang]/\[...slug].astro](<src/pages/[lang]/[...slug].astro>)
 
-      负责把 `/zh/...`、`/en/...` 分发到对应 contents 页面
+      负责把 `/zh/...`、`/en/...`、`/ja/...`、`/ko/...` 分发到对应 contents 页面
 
    3. 目前内容页需要在这个文件里注册 slug，新增页面时记得一起改
 
-   4. 现有中文文档页 [src/pages/zh/about.md](src/pages/zh/about.md)
+   4. 现有文档页 [src/pages/zh/about.md](src/pages/zh/about.md)、[src/pages/ja/about.md](src/pages/ja/about.md)、[src/pages/ko/about.md](src/pages/ko/about.md)
    5. 博客页已拆到独立路由目录 [src/pages/[lang]/blog/](<src/pages/[lang]/blog/>)
       - 博客文章不需要再在 [\[lang]/\[...slug].astro](<src/pages/[lang]/[...slug].astro>) 里手动注册
 

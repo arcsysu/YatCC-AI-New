@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     "demo-test-homepage-zh",
   ];
 
-  return (["zh", "en"] as const).flatMap((lang) =>
+  return (["zh", "en", "ja", "ko"] as const).flatMap((lang) =>
     legacyBlogSlugs.map((slug) => ({
       params: { lang, slug },
     })),
