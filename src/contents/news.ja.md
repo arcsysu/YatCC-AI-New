@@ -1,3 +1,4 @@
+2026年8月12日：YatCCはAPAN62アジア太平洋ネットワーク会議に参加し、「YatCC: Turning Computing Infrastructure into Intelligent Workspaces」と題する発表を行いました。
 2026年7月29日：YatCC が2026年信頼できる Token クラウドサービス革新実践事例に選ばれ、『YatCC：シナリオ駆動の一体型インテリジェントサービスプラットフォームの探索と実践』と題して報告しました。
 2026年6月25日：累計 Token 呼び出し量が [300億](https://portal.aihub.arcsysu.cn/) を突破し、GLM-5.2 などのモデル対応を追加しました。
 2026年6月14日：Hermes エージェントを全面サポートし、パーソナライズされた Skill を提供して次世代エージェントシステムを実現します。

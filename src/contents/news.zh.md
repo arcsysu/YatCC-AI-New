@@ -1,3 +1,4 @@
+2026年8月12日：YatCC 参加 [APAN62](https://apan62.apan.net/) 亚太网络会议，作《YatCC: Turning Computing Infrastructure into Intelligent Workspaces》分享报告。
 2026年7月29日：YatCC 入选2026年可信 Token 云服务创新实践案例，并作分享报告《YatCC：场景驱动的一体化智能服务平台探索与实践》。
 2026年6月25日：累计 Token 调用量突破 [300亿](https://portal.aihub.arcsysu.cn/)，已新增 GLM-5.2 等模型支持。
 2026年6月14日：全面支持 Hermes 智能体，提供个性化 Skill，使能新一代智能体系统。

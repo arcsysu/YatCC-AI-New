@@ -1,3 +1,4 @@
+August 12, 2026: YatCC participated in the APAN62 meeting, and delivered a presentation titled “YatCC: Turning Computing Infrastructure into Intelligent Workspaces.”
 July 29, 2026: Recognized as a 2026 Token Cloud Service Innovation Practice Case, and invited to give a presentation.
 June 25, 2026: Total token usage exceeds [30 billion](https://portal.aihub.arcsysu.cn/), already supported new models like GLM-5.2.
 June 14, 2026: Full support for Hermes, delivering personalized Skills and enabling a new generation of intelligent agent systems.
